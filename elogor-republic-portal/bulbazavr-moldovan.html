@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Служебный вход — Елогорская Республика</title>
+  <link rel="icon" type="image/svg+xml" href="assets/emblem.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-shell">
+
+<!-- Экран входа -->
+<div class="login-screen" id="login-screen">
+  <div class="login-box">
+    <div class="login-title">
+      <img src="assets/emblem.svg" alt="">
+      Служебный вход. Государственная служба правовой информации
+    </div>
+    <div class="login-body">
+      <form id="login-form" autocomplete="off">
+        <label for="lf-login">Имя пользователя</label>
+        <input type="text" id="lf-login" name="login" autocomplete="username" autofocus>
+        <label for="lf-password">Пароль</label>
+        <input type="password" id="lf-password" name="password" autocomplete="current-password">
+
+        <div class="login-error" id="login-error">Неверные имя пользователя или пароль.</div>
+
+        <div class="login-actions">
+          <a class="btn" href="index.html">← На главную</a>
+          <button class="btn btn-primary" type="submit">Войти</button>
+        </div>
+
+        <div class="login-hint">
+          Доступ имеют только уполномоченные сотрудники Государственной службы правовой информации.
+          Все действия журналируются.
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Кабинет администратора (после логина) -->
+<div id="admin-app" style="display:none;">
+
+  <div class="admin-splash">
+    <img src="assets/emblem.svg" alt="" style="width:24px;height:24px;">
+    <span class="grow"><strong>Кабинет публикатора</strong> · Государственная служба правовой информации Елогорской Республики</span>
+    <span id="local-changes-indicator" class="local-changes" style="display:none;">⚠ Есть несохранённые изменения</span>
+    <a href="index.html" target="_blank">Открыть портал ↗</a>
+    <a href="#" id="btn-logout">Выход</a>
+  </div>
+
+  <main class="page" style="padding-top:12px;">
+
+    <div class="admin-tabs">
+      <div class="tab active" data-tab="list">Список актов</div>
+      <div class="tab"        data-tab="form">Опубликовать / редактировать</div>
+      <div class="tab"        data-tab="export">Сохранить и опубликовать</div>
+    </div>
+
+    <!-- Вкладка: список -->
+    <div class="tab-page active" id="tab-list">
+
+      <div class="admin-toolbar">
+        <input type="text" id="adm-search" placeholder="Поиск по названию, номеру, тегу..." style="padding:5px 8px;border:1px solid #8a9fbb;border-radius:3px;min-width:260px;">
+        <select id="adm-type-filter" style="padding:5px 6px;border:1px solid #8a9fbb;border-radius:3px;">
+          <option value="">— все типы —</option>
+        </select>
+        <span class="status" id="adm-status">—</span>
+        <span class="grow"></span>
+        <button class="btn btn-primary" id="btn-new-act">+ Опубликовать новый акт</button>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th style="width:36px;">№</th>
+            <th>Название</th>
+            <th style="width:130px;">Тип</th>
+            <th style="width:120px;">Дата</th>
+            <th style="width:80px;">Файл</th>
+            <th style="width:90px;">Статус</th>
+            <th style="width:170px;" class="col-actions">Действия</th>
+          </tr>
+        </thead>
+        <tbody id="adm-tbody">
+          <tr><td colspan="7" style="text-align:center;color:#777;padding:20px;">Загрузка…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Вкладка: форма -->
+    <div class="tab-page" id="tab-form">
+      <div class="panel">
+        <div class="panel-title" id="form-title">Опубликование нормативного правового акта</div>
+        <div class="panel-body">
+          <form id="act-form" autocomplete="off">
+            <input type="hidden" id="f-id">
+
+            <div class="form-grid">
+              <div class="full">
+                <label for="f-title">Название акта *</label>
+                <input type="text" id="f-title" required>
+              </div>
+
+              <div>
+                <label for="f-type">Тип акта *</label>
+                <select id="f-type" required></select>
+              </div>
+              <div>
+                <label for="f-date">Дата опубликования *</label>
+                <input type="date" id="f-date" required>
+              </div>
+
+              <div>
+                <label for="f-number">Номер / реквизиты</label>
+                <input type="text" id="f-number" placeholder="Указ № 412/2024">
+              </div>
+              <div>
+                <label for="f-author">Принявший орган</label>
+                <input type="text" id="f-author" placeholder="Президент Елогорской Республики" list="author-suggest">
+                <datalist id="author-suggest"></datalist>
+              </div>
+
+              <div class="full">
+                <label for="f-summary">Краткое описание</label>
+                <textarea id="f-summary"></textarea>
+              </div>
+
+              <div class="full">
+                <label for="f-tags">Теги (через запятую)</label>
+                <input type="text" id="f-tags" placeholder="например: льготы, демография, семья">
+              </div>
+
+              <div class="full">
+                <label>Файл акта (PDF / DOCX / TXT) *</label>
+                <div class="file-drop" id="f-file-drop">
+                  <strong>Перетащите файл сюда</strong> или нажмите, чтобы выбрать.<br>
+                  <small id="f-file-hint">PDF / DOCX / TXT, желательно &lt; 5 МБ</small>
+                </div>
+                <input type="file" id="f-file" style="display:none;" accept=".pdf,.docx,.doc,.txt,.rtf">
+              </div>
+
+              <div class="full" id="f-file-existing" style="display:none;">
+                <div style="font-size:12px;color:#355d8d;">
+                  Текущий файл: <strong id="f-file-existing-name">—</strong>
+                  <a class="btn btn-sm" id="f-file-keep" href="#" style="margin-left:8px;">Сохранить как есть</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn" id="f-cancel">Отмена</button>
+              <button type="submit" class="btn btn-primary">Сохранить акт</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Вкладка: экспорт -->
+    <div class="tab-page" id="tab-export">
+      <div class="panel">
+        <div class="panel-title">Сохранение и публикация изменений</div>
+        <div class="panel-body">
+          <div class="export-warning">
+            <strong>Как опубликовать изменения для всех пользователей:</strong>
+            сайт работает на статическом хостинге (GitHub Pages), поэтому загруженные акты
+            до коммита в репозиторий хранятся только в этом браузере.
+            Чтобы опубликовать их для всех — скачайте архив ниже, распакуйте в корень репозитория
+            (заменяя файлы <code>data/manifest.json</code> и каталог <code>data/acts/</code>),
+            закоммитьте и сделайте <code>git push</code>. После публикации Pages
+            автоматически обновит сайт.
+          </div>
+
+          <p style="font-size:12px;line-height:1.5;">
+            Локальные изменения: <span id="export-stats">—</span>
+          </p>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-primary" id="btn-export-zip">⤓ Скачать архив для публикации (ZIP)</button>
+            <button class="btn" id="btn-export-manifest">⤓ Только manifest.json</button>
+            <button class="btn btn-danger" id="btn-discard">Откатить локальные изменения</button>
+          </div>
+
+          <hr style="margin:18px 0; border:none; border-top:1px solid #d6dee9;">
+
+          <h4 style="margin:0 0 6px; font-size:12px; color:#0e2640;">Импорт ранее сохранённого manifest.json</h4>
+          <p style="font-size:12px;color:#4a607c;margin:0 0 6px;">Можно загрузить готовый manifest.json — например, чтобы продолжить работу на другом компьютере.</p>
+          <input type="file" id="btn-import-manifest" accept=".json">
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- JSZip для упаковки архива -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

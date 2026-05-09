@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Официальный портал правовой информации Елогорской Республики</title>
+  <meta name="description" content="Официальное опубликование нормативных правовых актов Елогорской Республики: указы, законы, постановления, обращения, ноты, договоры.">
+  <link rel="icon" type="image/svg+xml" href="assets/emblem.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="page">
+    <span>Государственная система правовой информации&nbsp;·&nbsp;<strong>publica.elogor.gov.er</strong></span>
+    <div class="topbar-links">
+      <a href="#about">О портале</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#feedback">Обратная связь</a>
+      <a href="#help">Помощь</a>
+    </div>
+  </div>
+</div>
+
+<header class="header shine">
+  <div class="page">
+    <img class="emblem" src="assets/emblem.svg" alt="Герб Елогорской Республики">
+    <h1>
+      Официальный интернет-портал<br>правовой информации Елогорской Республики
+      <small>государственная система правовой информации&nbsp;·&nbsp;учреждён Указом Президента ЕР № 78/2003</small>
+    </h1>
+    <div class="motto">
+      <strong>Елогорская Республика</strong>
+      Закон. Достоинство. Отечество.
+    </div>
+  </div>
+</header>
+
+<nav class="navbar">
+  <div class="page">
+    <a href="#" class="active">Главная</a>
+    <a href="#acts">Документы</a>
+    <a href="#types">Виды актов</a>
+    <a href="#authors">Принявшие органы</a>
+    <a href="#about">О портале</a>
+    <a href="#search">Расширенный поиск</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="content">
+
+    <!-- Сайдбар: фильтры -->
+    <aside>
+      <div class="panel filters">
+        <div class="panel-title">Поиск и фильтры</div>
+        <div class="panel-body">
+
+          <label for="f-q">Ключевые слова</label>
+          <input type="text" id="f-q" placeholder="Например: льготы, граница, помилование">
+
+          <label>Дата опубликования</label>
+          <div class="filter-row">
+            <input type="date" id="f-from" title="С">
+            <input type="date" id="f-to" title="По">
+          </div>
+
+          <label for="f-author">Принявший орган</label>
+          <select id="f-author">
+            <option value="">— все органы —</option>
+          </select>
+
+          <label>Виды актов</label>
+          <div class="type-group" id="f-types">
+            <em style="color:#888">загрузка…</em>
+          </div>
+
+          <div class="filter-actions">
+            <button class="btn btn-primary" id="btn-apply">Применить</button>
+            <button class="btn" id="btn-reset">Сбросить</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Помощь</div>
+        <div class="panel-body" style="font-size:12px; line-height:1.5;">
+          <p style="margin:0 0 6px;">Поиск по фрагменту названия, тегам, номеру акта, автору и краткому описанию.</p>
+          <p style="margin:0;">Документы доступны для просмотра в окне браузера и для загрузки в исходном формате (PDF / DOCX / TXT).</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Список актов -->
+    <section>
+      <div class="results-toolbar">
+        <span class="count" id="count-line">Загрузка…</span>
+        <span>
+          <label for="sort-by" style="font-size:11px; color:#4a607c; margin-right:4px;">Сортировать:</label>
+          <select id="sort-by" class="sort-select">
+            <option value="date-desc">Сначала новые</option>
+            <option value="date-asc">Сначала старые</option>
+            <option value="title-asc">По названию (А→Я)</option>
+            <option value="title-desc">По названию (Я→А)</option>
+            <option value="type">По типу</option>
+          </select>
+        </span>
+      </div>
+      <ul class="act-list" id="act-list">
+        <li class="empty"><span class="empty-icon">⌛</span>Загрузка списка нормативных правовых актов…</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Информационные блоки -->
+  <section id="about" class="panel" style="margin-top: 18px;">
+    <div class="panel-title">О портале</div>
+    <div class="panel-body" style="font-size:12px; line-height:1.55;">
+      <p>Настоящий портал является официальным источником опубликования нормативных правовых актов
+      Елогорской Республики и осуществляет свою деятельность в соответствии с Федеральным
+      конституционным законом «Об официальном опубликовании правовой информации» и Указом Президента
+      Елогорской Республики № 78/2003 «О государственной системе правовой информации».</p>
+      <p>На портале публикуются: законы Елогорской Республики, указы и распоряжения Президента,
+      постановления и распоряжения Правительства, акты Парламента и Сената, постановления Конституционного
+      и Верховного Судов, ведомственные приказы и регламенты, международные договоры и дипломатические
+      ноты, обращения, заявления и иные акты органов государственной власти.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-cols">
+    <div>
+      <h4>Учредитель</h4>
+      Государственная служба правовой информации<br>
+      при Президенте Елогорской Республики
+    </div>
+    <div>
+      <h4>Адрес редакции</h4>
+      Республика Елогор, г. Елогор,<br>пр-т Соборный, д. 14, корп. А
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      Тел.: +0 (000) 000-00-00<br>
+      e-mail: pravo@elogor.gov.er
+    </div>
+  </div>
+  <div class="credit">
+    © 2003–2025 Государственная служба правовой информации Елогорской Республики.
+    Все материалы публикуются в качестве официального опубликования.
+  </div>
+</footer>
+
+<!-- Модалка просмотра -->
+<div class="modal-backdrop" id="viewer-modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="viewer-title">Документ</span>
+      <button class="modal-close" id="viewer-close" title="Закрыть (Esc)">×</button>
+    </div>
+    <div class="modal-toolbar">
+      <a class="btn btn-sm" id="viewer-download" href="#" download>⤓ Скачать оригинал</a>
+      <span class="btn btn-sm" id="viewer-print" role="button">🖶 Печать</span>
+      <span class="meta" id="viewer-meta"></span>
+    </div>
+    <div class="modal-body" id="viewer-body">
+      <div class="viewer-loading">Загрузка документа…</div>
+    </div>
+  </div>
+</div>
+
+<!-- Внешние библиотеки для просмотрщика -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
+<script src="js/viewer.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
