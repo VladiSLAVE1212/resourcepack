@@ -1,0 +1,230 @@
+/* Админ-панель — те же aero/Web 2.0 принципы */
+
+.admin-shell { padding-top: 0; }
+
+/* ---------- логин ---------- */
+.login-screen {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 12px;
+}
+.login-box {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(180deg, #ffffff 0%, #eaf0fa 100%);
+  border: 1px solid #1a3558;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.5) inset,
+    0 16px 40px rgba(0,0,0,0.35);
+}
+.login-box .login-title {
+  background: linear-gradient(180deg, #25446e 0%, #16314f 50%, #0e2640 50%, #1a3558 100%);
+  color: #fff;
+  padding: 12px 16px;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+  display: flex; align-items: center; gap: 10px;
+}
+.login-box .login-title img { width: 32px; height: 32px; }
+.login-box .login-body { padding: 18px 20px 20px; }
+.login-box label { display:block; font-size: 11px; color:#2a4060; font-weight:bold; margin: 8px 0 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+.login-box input[type=text], .login-box input[type=password] {
+  width: 100%; padding: 7px 9px; font-size: 13px;
+  border:1px solid #8a9fbb; border-radius: 4px;
+  background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08) inset;
+}
+.login-box .login-actions { margin-top: 14px; display:flex; justify-content: flex-end; gap: 8px; }
+.login-box .login-error {
+  background: #fff0f0;
+  border:1px solid #b03a3a;
+  color:#7a1818;
+  padding: 6px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  margin-top: 10px;
+  display: none;
+}
+.login-box .login-hint {
+  margin-top: 14px;
+  font-size: 11px;
+  color: #6b7d96;
+  border-top: 1px dotted #b3c4dc;
+  padding-top: 10px;
+  line-height: 1.45;
+}
+
+/* ---------- админ-таблица ---------- */
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  background: linear-gradient(180deg, #f3f7fc 0%, #d6e2f0 100%);
+  border: 1px solid #6b85a7;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+}
+.admin-toolbar .grow { flex: 1; }
+.admin-toolbar .status { font-size: 11px; color: #355d8d; }
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #6b85a7;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.admin-table th {
+  background: linear-gradient(180deg, #d6e2f0 0%, #b8cbe2 50%, #a1b8d3 50%, #b8cbe2 100%);
+  border-bottom: 1px solid #6b85a7;
+  text-align: left;
+  padding: 6px 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #0e2640;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+.admin-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+.admin-table tr:nth-child(even) td { background: #f6f9fd; }
+.admin-table tr:hover td { background: #fff7c4; }
+.admin-table .col-actions { white-space: nowrap; }
+
+.admin-table .pill {
+  display: inline-block;
+  padding: 1px 7px;
+  font-size: 10px;
+  border-radius: 9px;
+  border: 1px solid #8a9fbb;
+  background: linear-gradient(180deg, #f3f7fc 0%, #d6e2f0 100%);
+  color: #0e2640;
+}
+.admin-table .pill-new { background: linear-gradient(180deg,#dff8d2 0%, #a8e07f 100%); border-color:#56933a;}
+.admin-table .pill-edit { background: linear-gradient(180deg,#fff8c2 0%, #f0d35a 100%); border-color:#9a7c1a;}
+.admin-table .pill-del  { background: linear-gradient(180deg,#fad6d6 0%, #e88080 100%); border-color:#7a1818;}
+
+/* ---------- формы ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+.form-grid .full { grid-column: 1 / -1; }
+.form-grid label { display:block; font-size:11px; color:#2a4060; font-weight:bold; margin: 4px 0 3px; text-transform: uppercase; letter-spacing: 0.4px; }
+.form-grid input[type=text],
+.form-grid input[type=date],
+.form-grid select,
+.form-grid textarea {
+  width: 100%;
+  padding: 6px 8px;
+  font-family: inherit;
+  font-size: 13px;
+  border: 1px solid #8a9fbb;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08) inset;
+}
+.form-grid textarea { min-height: 70px; resize: vertical; }
+.form-grid .file-drop {
+  border: 1px dashed #8a9fbb;
+  background: linear-gradient(180deg, #f7faff 0%, #eaf0fa 100%);
+  border-radius: 4px;
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #4a607c;
+  cursor: pointer;
+}
+.form-grid .file-drop strong { color: #0e2640; }
+.form-grid .file-drop.has-file { background: linear-gradient(180deg,#dff8d2 0%, #b8e69a 100%); border-color:#56933a; color:#1a4408;}
+
+@media (max-width: 700px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.form-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ---------- предупреждение об экспорте ---------- */
+.export-warning {
+  background: linear-gradient(180deg,#fff8d2 0%, #ffe98a 100%);
+  border: 1px solid #c9a52e;
+  color: #5a4510;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* ---------- админ-навбар (мини) ---------- */
+.admin-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #6b85a7;
+}
+.admin-tabs .tab {
+  padding: 6px 16px;
+  border: 1px solid #6b85a7;
+  border-bottom: none;
+  background: linear-gradient(180deg, #d6e2f0 0%, #b8cbe2 100%);
+  color: #0e2640;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 2px;
+  border-radius: 4px 4px 0 0;
+  font-size: 12px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+.admin-tabs .tab.active {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f7fc 100%);
+  border-bottom: 1px solid #fff;
+  color: #0e2640;
+  margin-bottom: -1px;
+}
+
+.tab-page { display: none; }
+.tab-page.active { display: block; }
+
+/* ---------- значок локального изменения ---------- */
+.local-changes {
+  font-size: 11px;
+  color: #7a1818;
+  font-weight: bold;
+  background: #fff0f0;
+  border: 1px solid #b03a3a;
+  padding: 2px 7px;
+  border-radius: 9px;
+}
+
+/* ---------- splash сверху админки ---------- */
+.admin-splash {
+  background: linear-gradient(180deg, #25446e 0%, #16314f 50%, #0e2640 50%, #1a3558 100%);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 12px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid #000;
+}
+.admin-splash .grow { flex: 1; }
+.admin-splash a { color: #cfe1ff; }

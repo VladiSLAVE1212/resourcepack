@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Двуглавый орёл-стилизация для герба ЕР -->
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#fff3b0"/>
+      <stop offset="40%" stop-color="#e6c34a"/>
+      <stop offset="80%" stop-color="#a8801b"/>
+      <stop offset="100%" stop-color="#7a5a10"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#c43838"/>
+      <stop offset="60%" stop-color="#8a1818"/>
+      <stop offset="100%" stop-color="#5a0808"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8e0"/>
+      <stop offset="100%" stop-color="#e6c34a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Щит -->
+  <path d="M50,4 L92,16 L92,52 C92,76 75,90 50,96 C25,90 8,76 8,52 L8,16 Z"
+        fill="url(#redGrad)" stroke="#3a0606" stroke-width="1.5"/>
+  <path d="M50,7 L89,18 L89,52 C89,74 73,87 50,93 C27,87 11,74 11,52 L11,18 Z"
+        fill="none" stroke="url(#goldGrad)" stroke-width="1.2"/>
+
+  <!-- Звезда в центре -->
+  <g transform="translate(50,52)">
+    <polygon points="0,-22 6,-7 22,-7 9,3 14,18 0,9 -14,18 -9,3 -22,-7 -6,-7"
+             fill="url(#goldGrad)" stroke="#5a3a05" stroke-width="0.8"/>
+    <circle r="6" fill="url(#centerGlow)" stroke="#5a3a05" stroke-width="0.6"/>
+  </g>
+
+  <!-- Колосья -->
+  <g stroke="url(#goldGrad)" stroke-width="1.4" fill="none">
+    <path d="M22,72 Q30,60 36,52"/>
+    <path d="M78,72 Q70,60 64,52"/>
+  </g>
+  <g fill="url(#goldGrad)">
+    <ellipse cx="26" cy="68" rx="2" ry="3.5" transform="rotate(-30 26 68)"/>
+    <ellipse cx="30" cy="62" rx="2" ry="3.5" transform="rotate(-30 30 62)"/>
+    <ellipse cx="34" cy="56" rx="2" ry="3.5" transform="rotate(-30 34 56)"/>
+    <ellipse cx="74" cy="68" rx="2" ry="3.5" transform="rotate(30 74 68)"/>
+    <ellipse cx="70" cy="62" rx="2" ry="3.5" transform="rotate(30 70 62)"/>
+    <ellipse cx="66" cy="56" rx="2" ry="3.5" transform="rotate(30 66 56)"/>
+  </g>
+
+  <!-- Лента с буквами Е.Р. -->
+  <path d="M14,80 Q50,92 86,80 L82,86 Q50,98 18,86 Z"
+        fill="url(#goldGrad)" stroke="#5a3a05" stroke-width="0.7"/>
+  <text x="50" y="88" text-anchor="middle"
+        font-family="Times New Roman, serif" font-size="7"
+        font-weight="bold" fill="#3a0606">ЕЛОГОРЪ · РЕСПУБЛИКА</text>
+
+  <!-- Блик на щите для эффекта Web 2.0 -->
+  <path d="M50,7 L89,18 L89,40 C70,30 30,30 11,40 L11,18 Z"
+        fill="rgba(255,255,255,0.2)"/>
+</svg>
